@@ -4140,6 +4140,11 @@ dotenv@8.2.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
 
+dotenv@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-2.0.0.tgz#bd759c357aaa70365e01c96b7b0bec08a6e0d949"
+  integrity sha1-vXWcNXqqcDZeAclrewvsCKbg2Uk=
+
 duplexer@^0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.2.tgz#3abe43aef3835f8ae077d136ddce0f276b0400e6"
@@ -9688,6 +9693,13 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   integrity sha1-6Eg5bwV9Ij8kOGkkYY4laUFh7Ec=
   dependencies:
     aproba "^1.1.1"
+
+run.env@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/run.env/-/run.env-1.1.0.tgz#a33450a9cbf2bc28a67463e51cc64436eda57441"
+  integrity sha512-KWs8/mIvCs+LPfoQXp4zPo0gZiQCUNKyV33tN7m6r5jL2ZzT11/A2Y1UACsiSMAB53i7jp26uDN2+AeZuZ7+vw==
+  dependencies:
+    dotenv "^2.0.0"
 
 rxjs@^6.6.0:
   version "6.6.3"

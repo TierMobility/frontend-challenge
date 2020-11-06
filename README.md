@@ -1,8 +1,19 @@
-# Frontend challenge
+# Frontend challenge 🦅
 
-# Getting Started with Create React App
+## What you have to do
+*“As a user I want to shorten my long url and be able to copy it into clipboard to post it on a social platform (e.g. Twitter).”*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this challenge we’re asking you to create a user interface to shorten urls by using bitly API. 
+In order to use the bitly API you need an `Authentication token`, which you will find in the environment variables (`.env`) of the project.
+
+Bonus points: 
+
+- `Validate user data`
+- `Create a test suite`
+- `Create and use reusable components`
+- `Create your own CSS theme (clean & responsive layout)`
+
+Please do not spend more than **2 hours** on this, don’t worry if you don’t finish everything. Please send us a link to your project on GitHub. Good luck and have fun!
 
 ## Available Scripts
 
@@ -19,34 +30,11 @@ You will also see any lint errors in the console.
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Learn More
+### `yarn build`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
