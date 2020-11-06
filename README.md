@@ -4,7 +4,7 @@
 *“As a user I want to shorten my long url and be able to copy it into clipboard to post it on a social platform (e.g. Twitter).”*
 
 In this challenge we’re asking you to create a user interface to shorten urls by using bitly API. 
-In order to use the bitly API you need an `Authentication token`, which you will find in the environment variables (`.env`) of the project.
+In order to use the bitly API you need an `Authentication token`, which you will find in the environment variables (`.env.dist`) of the project.
 
 Bonus points: 
 
