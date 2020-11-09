@@ -1,13 +1,9 @@
 # Frontend challenge 🦅
 
-## Installation & setup
-
-Run `yarn install` to install dependancies, then copy `.env.dist` to `.env`.
-
 ## What you have to do
 *“As a user I want to shorten my long url and be able to copy it into clipboard to post it on a social platform (e.g. Twitter).”*
 
-In this challenge we’re asking you to create a user interface to shorten urls by using bitly API. 
+In this challenge we’re asking you to create a user interface to shorten urls by using the [Bitly API](https://dev.bitly.com/api-reference#operation/createBitlink). 
 In order to use the bitly API you need an `Authentication token`, which you will find in the environment variables (`.env`) of the project.
 
 Bonus points: 
@@ -18,6 +14,10 @@ Bonus points:
 - `Create your own CSS theme (clean & responsive layout)`
 
 Please do not spend more than **2 hours** on this, don’t worry if you don’t finish everything. Please send us a link to your project on GitHub. Good luck and have fun!
+
+## Installation & setup
+
+Run `yarn install` to install dependancies, then copy `.env.dist` to `.env`.
 
 ## Available Scripts
 
