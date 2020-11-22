@@ -1,6 +1,5 @@
-/* eslint no-unused-vars: 1 */
-
 import React, { useCallback, useState } from 'react';
+import { createShortLink } from '../services/shortenService';
 
 const ShortenUrlForm = () => {
     const [value, setValue] = useState('');
@@ -11,8 +10,9 @@ const ShortenUrlForm = () => {
 
     const onSubmit = useCallback((e) => {
         e.preventDefault();
-        // TODO: shorten url and copy to clipboard
-    }, [/* TODO: necessary deps */]);
+
+        createShortLink(value);
+    }, []);
 
     return (
         <form onSubmit={onSubmit}>
