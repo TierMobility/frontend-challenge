@@ -1,35 +1,15 @@
 /* eslint no-unused-vars: 1 */
 
 import React, { useCallback, useState } from 'react';
-
-const regexForUrl =
-new RegExp(/^((http(s?)):\/\/)[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/);
-const copyToClipboard = async copyText => navigator.clipboard.writeText(copyText);
+import { shortenUrl } from '../helpers/shortenUrl';
+import { regexForUrl } from '../helpers/regexForUrl';
+import { copyToClipboard } from '../helpers/copyToClipboard';
 
 const ShortenUrlForm = () => {
     const [value, setValue] = useState('');
     const [shortUrl, setShortUrl] = useState(null);
     const [validationMsg, setValidationMsg] = useState(false);
     const [error, setError] = useState(false);
-
-    const shortenUrl = async (url) => {
-        const headers = {
-            Authorization: `Bearer ${process.env.REACT_APP_BITLY_AUTORIZATION_TOKEN}`,
-            'Content-Type': 'application/json',
-        };
-        try {
-            return fetch('https://api-ssl.bitly.com/v4/shorten', {
-                headers,
-                method: 'POST',
-                body: JSON.stringify({
-                    long_url: url,
-                    domain: 'bit.ly',
-                }),
-            });
-        } catch (err) {
-            throw new Error(err);
-        }
-    };
 
     const onChange = useCallback((e) => {
         setValue(e.target.value);
