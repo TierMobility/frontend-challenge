@@ -2,8 +2,14 @@
 
 import React, { useCallback, useState } from 'react';
 
+const regexForUrl =
+new RegExp(/^((http(s?)):\/\/)[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/);
+
 const ShortenUrlForm = () => {
     const [value, setValue] = useState('');
+    const [shortUrl, setShortUrl] = useState(null);
+    const [validationMsg, setValidationMsg] = useState(false);
+    const [error, setError] = useState(false);
 
     const shortenUrl = async (url) => {
         const headers = {
@@ -19,26 +25,33 @@ const ShortenUrlForm = () => {
                     domain: 'bit.ly',
                 }),
             });
-        } catch (error) {
-            throw new Error(error);
+        } catch (err) {
+            throw new Error(err);
         }
     };
 
     const onChange = useCallback((e) => {
         setValue(e.target.value);
+        setValidationMsg(false);
+        setError(false);
     }, [value]);
 
     const onSubmit = useCallback((e) => {
         e.preventDefault();
+        setShortUrl(null);
+        if (!regexForUrl.test(value)) {
+            setValidationMsg(true);
+            return;
+        }
         shortenUrl(value).then((response) => {
             if (response.status >= 200 && response.status <= 300) {
                 return response.json();
             }
             throw new Error('Something went wrong');
         }).then(async (res) => {
-            await console.log('success');
+            await setShortUrl(res.link);
         }).catch(() => {
-            console.log('error');
+            setError(true);
         });
     }, [value]);
 
@@ -49,10 +62,24 @@ const ShortenUrlForm = () => {
                 <input placeholder="Url to shorten" id="shorten" type="text" value={value} onChange={onChange} />
             </label>
             <input type="submit" value="Shorten and copy URL" />
-            {/* TODO: show below only when the url has been shortened and copied */}
-            <div>
-                {/* Show shortened url --- copied! */}
-            </div>
+            {shortUrl &&
+                (
+                    <div>
+                        {`Congrats! Your short link is ready! ${shortUrl}`}
+                    </div>
+                )}
+            {validationMsg &&
+                (
+                    <div>
+                        This URL is not valid
+                    </div>
+                )}
+            {error &&
+                (
+                    <div>
+                        Oops, something went wrong. Please, try again
+                    </div>
+                )}
         </form>
     );
 };
