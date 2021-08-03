@@ -5,14 +5,42 @@ import React, { useCallback, useState } from 'react';
 const ShortenUrlForm = () => {
     const [value, setValue] = useState('');
 
+    const shortenUrl = async (url) => {
+        const headers = {
+            Authorization: `Bearer ${process.env.REACT_APP_BITLY_AUTORIZATION_TOKEN}`,
+            'Content-Type': 'application/json',
+        };
+        try {
+            return fetch('https://api-ssl.bitly.com/v4/shorten', {
+                headers,
+                method: 'POST',
+                body: JSON.stringify({
+                    long_url: url,
+                    domain: 'bit.ly',
+                }),
+            });
+        } catch (error) {
+            throw new Error(error);
+        }
+    };
+
     const onChange = useCallback((e) => {
-        // TODO: Set the component's new state based on the user's input
-    }, [/* TODO: Add necessary deps */]);
+        setValue(e.target.value);
+    }, [value]);
 
     const onSubmit = useCallback((e) => {
         e.preventDefault();
-        // TODO: shorten url and copy to clipboard
-    }, [/* TODO: necessary deps */]);
+        shortenUrl(value).then((response) => {
+            if (response.status >= 200 && response.status <= 300) {
+                return response.json();
+            }
+            throw new Error('Something went wrong');
+        }).then(async (res) => {
+            await console.log('success');
+        }).catch(() => {
+            console.log('error');
+        });
+    }, [value]);
 
     return (
         <form onSubmit={onSubmit}>
