@@ -4,6 +4,7 @@ import React, { useCallback, useState } from 'react';
 import { shortenUrl } from '../helpers/shortenUrl';
 import { regexForUrl } from '../helpers/regexForUrl';
 import { copyToClipboard } from '../helpers/copyToClipboard';
+import { Message } from './Message';
 
 const ShortenUrlForm = () => {
     const [value, setValue] = useState('');
@@ -46,21 +47,21 @@ const ShortenUrlForm = () => {
             <input type="submit" value="Shorten and copy URL" />
             {shortUrl &&
                 (
-                    <div>
+                    <Message>
                         {`Congrats! Your short link is ready and copied in clipboard! ${shortUrl}`}
-                    </div>
+                    </Message>
                 )}
             {validationMsg &&
                 (
-                    <div>
+                    <Message>
                         This URL is not valid
-                    </div>
+                    </Message>
                 )}
             {error &&
                 (
-                    <div>
+                    <Message>
                         Oops, something went wrong. Please, try again
-                    </div>
+                    </Message>
                 )}
         </form>
     );
