@@ -4,6 +4,7 @@ import React, { useCallback, useState } from 'react';
 
 const regexForUrl =
 new RegExp(/^((http(s?)):\/\/)[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/);
+const copyToClipboard = async copyText => navigator.clipboard.writeText(copyText);
 
 const ShortenUrlForm = () => {
     const [value, setValue] = useState('');
@@ -49,7 +50,8 @@ const ShortenUrlForm = () => {
             }
             throw new Error('Something went wrong');
         }).then(async (res) => {
-            await setShortUrl(res.link);
+            await copyToClipboard(res.link);
+            setShortUrl(res.link);
         }).catch(() => {
             setError(true);
         });
@@ -65,7 +67,7 @@ const ShortenUrlForm = () => {
             {shortUrl &&
                 (
                     <div>
-                        {`Congrats! Your short link is ready! ${shortUrl}`}
+                        {`Congrats! Your short link is ready and copied in clipboard! ${shortUrl}`}
                     </div>
                 )}
             {validationMsg &&
