@@ -45,3 +45,6 @@ Launches the test runner in the interactive watch mode.\
 #### `yarn lint`
 
 Check and fix based on linting rules
+#### `yarn run cypress open`
+
+Runs Cypress e2e tests.

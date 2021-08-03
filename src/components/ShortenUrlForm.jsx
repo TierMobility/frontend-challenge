@@ -42,9 +42,9 @@ const ShortenUrlForm = () => {
         <form onSubmit={onSubmit}>
             <label htmlFor="shorten">
                 Url:
-                <input placeholder="Url to shorten" id="shorten" type="text" value={value} onChange={onChange} />
+                <input placeholder="Url to shorten" id="shorten" data-testid="shorten-input" type="text" value={value} onChange={onChange} />
             </label>
-            <input type="submit" value="Shorten and copy URL" />
+            <input type="submit" data-testid="button-submit" value="Shorten and copy URL" />
             {shortUrl &&
                 (
                     <Message>
