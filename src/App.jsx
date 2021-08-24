@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './img/tier-logo.svg';
 import './css/App.css';
-import { ShortenUrlForm } from './components';
+import ShortenUrlForm from './components';
 
 const App = () => (
     <div className="App">
